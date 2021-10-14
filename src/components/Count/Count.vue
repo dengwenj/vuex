@@ -43,16 +43,18 @@ export default {
       this.$store.dispatch('decrement', this.v)
     },
     incrementOdd() {
-      if (this.$store.state.n % 2 !== 0) {
-        // this.n += this.v * 1
-        this.$store.dispatch('increment', this.v)
-      }
+      // if (this.$store.state.n % 2 !== 0) {
+      //   // this.n += this.v * 1
+      //   this.$store.dispatch('increment', this.v)
+      // }
+      this.$store.dispatch('incrementOdd', this.v)
     },
     incrementAsync() {
-      setTimeout(() => {
-        // this.n += this.v * 1
-        this.$store.dispatch('increment', this.v)
-      }, 1000)
+      // setTimeout(() => {
+      //   // this.n += this.v * 1
+      //   this.$store.dispatch('increment', this.v)
+      // }, 1000)
+      this.$store.dispatch('incrementAsync', this.v)
     },
   },
 }

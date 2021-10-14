@@ -15,6 +15,18 @@ const actions = {
   decrement(context, value) {
     context.commit('JIAN', value)
   },
+
+  incrementOdd(context, value) {
+    if (context.state.n % 2 !== 0) {
+      context.commit('JIA', value)
+    }
+  },
+
+  incrementAsync(context, value) {
+    setTimeout(() => {
+      context.commit('JIA', value)
+    }, 1000)
+  },
 }
 
 const mutations = {
