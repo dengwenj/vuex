@@ -1,23 +1,15 @@
 <template>
   <div>
-    <h1>hello world</h1>
-    <foo />
-    <bar />
+    <Count />
   </div>
 </template>
 
 <script>
-import Foo from './components/Foo'
-import Bar from './components/Bar'
-
+import Count from './components/Count/Count'
 export default {
   name: 'App',
-  components: {
-    Foo,
-    Bar,
-  },
+  components: { Count },
 }
 </script>
 
-<style>
-</style>
+<style></style>
