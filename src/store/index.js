@@ -31,8 +31,17 @@ const mutations = {
   },
 }
 
+// 类似于计算属性
+const getters = {
+  multiple10(state) {
+    // 让当前求个增加10倍
+    return state.n * 10
+  },
+}
+
 export default new Vuex.Store({
   state,
   mutations,
   actions,
+  getters,
 })

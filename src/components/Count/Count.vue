@@ -2,6 +2,7 @@
   <div class="">
     <!-- <h2>当前求和为：{{ n }}</h2> -->
     <h2>当前求和为：{{ $store.state.n }}</h2>
+    <h3>当前求和增加10倍：{{ $store.getters.multiple10 }}</h3>
     <select name="" id="" v-model="v">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -30,7 +31,7 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    // console.log(this)
+    console.log(this)
   },
   beforeDestroy() {},
   methods: {
