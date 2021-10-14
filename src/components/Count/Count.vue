@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <h1>下面组件的人数为：{{ friend.length }}</h1>
     <!-- <h2>当前求和为：{{ n }}</h2> -->
     <!-- <h2>当前求和为：{{ $store.state.n }}</h2> -->
     <h2>当前求和为：{{ n }}</h2>
@@ -31,15 +32,15 @@ export default {
     }
   },
   computed: {
-    ...mapState(['n']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
+    ...mapState(['n', 'friend']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
 
     ...mapGetters(['multiple10']), // 同理上面
   },
   watch: {},
   created() {},
   mounted() {
-    console.log(this)
-    console.log(mapState(['n']))
+    // console.log(this)
+    // console.log(mapState(['n']))
   },
   beforeDestroy() {},
   methods: {
