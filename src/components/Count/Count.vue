@@ -1,6 +1,7 @@
 <template>
   <div class="">
-    <h2>当前求和为：{{ n }}</h2>
+    <!-- <h2>当前求和为：{{ n }}</h2> -->
+    <h2>当前求和为：{{ $store.state.n }}</h2>
     <select name="" id="" v-model="v">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -21,30 +22,36 @@ export default {
   props: {},
   data() {
     return {
-      n: 0,
+      // n: 0,
       v: 1,
     }
   },
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
+  mounted() {
+    // console.log(this)
+  },
   beforeDestroy() {},
   methods: {
     increment() {
-      this.n += this.v * 1
+      // this.n += this.v * 1
+      this.$store.dispatch('increment', this.v)
     },
     decrement() {
-      this.n -= this.v * 1
+      // this.n -= this.v * 1
+      this.$store.dispatch('decrement', this.v)
     },
     incrementOdd() {
-      if (this.n % 2 !== 0) {
-        this.n += this.v * 1
+      if (this.$store.state.n % 2 !== 0) {
+        // this.n += this.v * 1
+        this.$store.dispatch('increment', this.v)
       }
     },
     incrementAsync() {
       setTimeout(() => {
-        this.n += this.v * 1
+        // this.n += this.v * 1
+        this.$store.dispatch('increment', this.v)
       }, 1000)
     },
   },

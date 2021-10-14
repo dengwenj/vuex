@@ -4,13 +4,29 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // 存储状态
-const state = {}
+const state = {
+  n: 0,
+}
 
-const mutations = {}
+const actions = {
+  increment(context, value) {
+    context.commit('JIA', value)
+  },
+  decrement(context, value) {
+    context.commit('JIAN', value)
+  },
+}
 
-const actions = {}
+const mutations = {
+  JIA(state, value) {
+    state.n += value * 1
+  },
+  JIAN(state, value) {
+    state.n -= value * 1
+  },
+}
 
-new Vuex.Store({
+export default new Vuex.Store({
   state,
   mutations,
   actions,
