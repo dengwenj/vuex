@@ -36,11 +36,13 @@ export default {
   methods: {
     increment() {
       // this.n += this.v * 1
-      this.$store.dispatch('increment', this.v)
+      // this.$store.dispatch('increment', this.v)
+      this.$store.commit('JIA', this.v)
     },
     decrement() {
       // this.n -= this.v * 1
-      this.$store.dispatch('decrement', this.v)
+      // this.$store.dispatch('decrement', this.v)
+      this.$store.commit('JIAN', this.v)
     },
     incrementOdd() {
       // if (this.$store.state.n % 2 !== 0) {

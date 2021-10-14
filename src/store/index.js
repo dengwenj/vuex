@@ -9,13 +9,6 @@ const state = {
 }
 
 const actions = {
-  increment(context, value) {
-    context.commit('JIA', value)
-  },
-  decrement(context, value) {
-    context.commit('JIAN', value)
-  },
-
   incrementOdd(context, value) {
     if (context.state.n % 2 !== 0) {
       context.commit('JIA', value)
