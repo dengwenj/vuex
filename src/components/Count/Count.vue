@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <h1>下面组件的人数为：{{ friend.length }}</h1>
+    <!-- <h1>下面组件的人数为：{{ friend.length }}</h1> -->
     <!-- <h2>当前求和为：{{ n }}</h2> -->
     <!-- <h2>当前求和为：{{ $store.state.n }}</h2> -->
     <h2>当前求和为：{{ n }}</h2>
@@ -32,14 +32,15 @@ export default {
     }
   },
   computed: {
-    ...mapState(['n', 'friend']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
+    ...mapState('count', ['n']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
+    ...mapState('person', ['friend']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
 
-    ...mapGetters(['multiple10']), // 同理上面
+    ...mapGetters('count', ['multiple10']), // 同理上面
   },
   watch: {},
   created() {},
   mounted() {
-    // console.log(this)
+    console.log(this)
     // console.log(mapState(['n']))
   },
   beforeDestroy() {},
@@ -54,7 +55,7 @@ export default {
     //   // this.$store.dispatch('decrement', this.v)
     //   this.$store.commit('JIAN', this.v)
     // },
-    ...mapMutations({ increment: 'JIA', decrement: 'JIAN' }),
+    ...mapMutations('count', { increment: 'JIA', decrement: 'JIAN' }),
 
     // 对象写法
     // ...mapActions({
@@ -63,7 +64,7 @@ export default {
     // }),
 
     // 数组写法 就是都要一样
-    ...mapActions(['incrementOdd', 'incrementAsync']),
+    ...mapActions('count', ['incrementOdd', 'incrementAsync']),
 
     // incrementOdd() {
     //   // if (this.$store.state.n % 2 !== 0) {
