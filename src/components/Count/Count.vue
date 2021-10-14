@@ -1,8 +1,10 @@
 <template>
   <div class="">
     <!-- <h2>当前求和为：{{ n }}</h2> -->
-    <h2>当前求和为：{{ $store.state.n }}</h2>
-    <h3>当前求和增加10倍：{{ $store.getters.multiple10 }}</h3>
+    <!-- <h2>当前求和为：{{ $store.state.n }}</h2> -->
+    <h2>当前求和为：{{ n }}</h2>
+    <!-- <h3>当前求和增加10倍：{{ $store.getters.multiple10 }}</h3> -->
+    <h3>当前求和增加10倍：{{ multiple10 }}</h3>
     <select name="" id="" v-model="v">
       <option value="1">1</option>
       <option value="2">2</option>
@@ -17,6 +19,7 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex'
 export default {
   name: 'Count',
   components: {},
@@ -27,11 +30,16 @@ export default {
       v: 1,
     }
   },
-  computed: {},
+  computed: {
+    ...mapState(['n']), // 返回值是一个对象 这样写了就可以不用写 this.$store.state.n 了 直接写 this.n
+
+    ...mapGetters(['multiple10']), // 同理上面
+  },
   watch: {},
   created() {},
   mounted() {
     console.log(this)
+    console.log(mapState(['n']))
   },
   beforeDestroy() {},
   methods: {
