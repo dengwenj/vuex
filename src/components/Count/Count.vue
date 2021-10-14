@@ -11,15 +11,15 @@
       <option value="3">3</option>
       <option value="4">4</option>
     </select>
-    <button @click="increment">+</button>
-    <button @click="decrement">-</button>
-    <button @click="incrementOdd">奇数加</button>
-    <button @click="incrementAsync">异步加</button>
+    <button @click="increment(v)">+</button>
+    <button @click="decrement(v)">-</button>
+    <button @click="incrementOdd(v)">奇数加</button>
+    <button @click="incrementAsync(v)">异步加</button>
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Count',
   components: {},
@@ -43,30 +43,41 @@ export default {
   },
   beforeDestroy() {},
   methods: {
-    increment() {
-      // this.n += this.v * 1
-      // this.$store.dispatch('increment', this.v)
-      this.$store.commit('JIA', this.v)
-    },
-    decrement() {
-      // this.n -= this.v * 1
-      // this.$store.dispatch('decrement', this.v)
-      this.$store.commit('JIAN', this.v)
-    },
-    incrementOdd() {
-      // if (this.$store.state.n % 2 !== 0) {
-      //   // this.n += this.v * 1
-      //   this.$store.dispatch('increment', this.v)
-      // }
-      this.$store.dispatch('incrementOdd', this.v)
-    },
-    incrementAsync() {
-      // setTimeout(() => {
-      //   // this.n += this.v * 1
-      //   this.$store.dispatch('increment', this.v)
-      // }, 1000)
-      this.$store.dispatch('incrementAsync', this.v)
-    },
+    // increment() {
+    //   // this.n += this.v * 1
+    //   // this.$store.dispatch('increment', this.v)
+    //   this.$store.commit('JIA', this.v)
+    // },
+    // decrement() {
+    //   // this.n -= this.v * 1
+    //   // this.$store.dispatch('decrement', this.v)
+    //   this.$store.commit('JIAN', this.v)
+    // },
+    ...mapMutations({ increment: 'JIA', decrement: 'JIAN' }),
+
+    // 对象写法
+    // ...mapActions({
+    //   incrementOdd: 'incrementOdd',
+    //   incrementAsync: 'incrementAsync',
+    // }),
+
+    // 数组写法 就是都要一样
+    ...mapActions(['incrementOdd', 'incrementAsync']),
+
+    // incrementOdd() {
+    //   // if (this.$store.state.n % 2 !== 0) {
+    //   //   // this.n += this.v * 1
+    //   //   this.$store.dispatch('increment', this.v)
+    //   // }
+    //   this.$store.dispatch('incrementOdd', this.v)
+    // },
+    // incrementAsync() {
+    //   // setTimeout(() => {
+    //   //   // this.n += this.v * 1
+    //   //   this.$store.dispatch('increment', this.v)
+    //   // }, 1000)
+    //   this.$store.dispatch('incrementAsync', this.v)
+    // },
   },
 }
 </script>
